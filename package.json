@@ -1,0 +1,15 @@
+{
+  "name":"chatter",
+  "description":"module for building chat server and client",
+  "version":"0.0.1",
+  "author":"Jim Snodgrass <jim@skookum.com>",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  },
+  "repository": "https://github.com/Skookum/mongoose-utils",
+  "main": "index",
+  "engines": { "node": ">= 0.6.0"}
+}
