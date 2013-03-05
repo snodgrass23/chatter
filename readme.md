@@ -16,7 +16,7 @@ chat_server.publish('I am a new message');
 ```
 
 
-### Chat Client
+### Server Side Chat Client
 
 ``` javascript
 var chatter = require('chatter');
@@ -24,4 +24,17 @@ var chat_client = new chatter.client();
 chat_client.on('message', function(message) {
 
 });
+```
+
+### Client Side Chat Client
+
+``` javascript
+<script src="http://mywebserver.com/chatter/chatter.js"></script>
+<script>
+  var client = chatter.connect('http://mywebserver.com/');
+  client.on('message'. function(data) {
+    console.log(data);
+  });
+</script>
+
 ```
