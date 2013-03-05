@@ -28,13 +28,12 @@ chat_client.on('message', function(message) {
 
 ### Client Side Chat Client
 
-``` javascript
+``` html
 <script src="http://mywebserver.com/chatter/chatter.js"></script>
-<script>
-  var client = chatter.connect('http://mywebserver.com/');
-  client.on('message'. function(data) {
-    console.log(data);
-  });
-</script>
-
+```
+``` javascript
+var client = chatter.connect('http://mywebserver.com/');
+client.on('message'. function(data) {
+  console.log(data);
+});
 ```
