@@ -4,8 +4,8 @@
   "version":"0.0.1",
   "author":"Jim Snodgrass <jim@skookum.com>",
   "engines": {
-      "node": "0.8.19",
-      "npm": "1.2.2"
+      "node": ">=0.8.0",
+      "npm": ">=1.1"
   },
   "dependencies": {
     "express":"3.x",
@@ -14,5 +14,7 @@
   },
   "devDependencies": {
 
-  }
+  },
+  "repository": "https://github.com/snodgrass23/chatter",
+  "main": "index"
 }
