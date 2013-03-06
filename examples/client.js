@@ -1,4 +1,4 @@
-var chatter = require('./index'),
+var chatter = require('../index'),
     stdin = process.stdin,
     stdout = process.stdout;
 
