@@ -19,4 +19,3 @@ function waitForMessage() {
 function sendMessage(message) {
   chatter_server.send(message);
 }
-

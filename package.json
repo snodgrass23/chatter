@@ -4,7 +4,9 @@
   "version":"0.0.1",
   "author":"Jim Snodgrass <jim@skookum.com>",
   "dependencies": {
-
+    "express":"3.x",
+    "superagent":"latest",
+    "underscore": "latest"
   },
   "devDependencies": {
 
