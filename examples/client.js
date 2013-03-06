@@ -16,7 +16,7 @@ chatter_client.on('message', function (message) {
       // console.log("JSON Error: ", e);
     }
   }
-  console.log(message.body);
+  console.log("\033[90m" + message.user + " : \033[39m" + message.body);
 });
 
 process.nextTick(waitForMessage);
@@ -30,5 +30,5 @@ function waitForMessage() {
 }
 
 function sendMessage(message) {
-  chatter_client.send(message.replace("\n", ""));
+  chatter_client.send(message.replace("\n", ""), "Jim");
 }
