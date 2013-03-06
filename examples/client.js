@@ -7,7 +7,7 @@ var connection = {
   port: 80
 };
 
-var chatter_client = new chatter.client();
+var chatter_client = new chatter.client(connection);
 
 chatter_client.on('message', function (message) {
   if (typeof message == "string") {
