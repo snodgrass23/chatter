@@ -2,11 +2,19 @@ var chatter = require('../index'),
     stdin = process.stdin,
     stdout = process.stdout;
 
-var chatter_client = new chatter.client();
+var chatter_client = new chatter.client({
+  host: "http://chatterjs.herokuapp.com",
+  port: 80
+});
 
-chatter_client.on('new_message', function (message) {
+chatter_client.on('message', function (message) {
   if (typeof message == "string") {
-    message = JSON.parse(message);
+    try {
+      message = JSON.parse(message);
+    }
+    catch(e) {
+      // console.log("JSON Error: ", e);
+    }
   }
   console.log(message.body);
 });
