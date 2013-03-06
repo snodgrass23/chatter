@@ -14,8 +14,5 @@
   },
   "devDependencies": {
 
-  },
-  "repository": "https://github.com/Skookum/mongoose-utils",
-  "main": "index",
-  "engines": { "node": ">= 0.8.0"}
+  }
 }
