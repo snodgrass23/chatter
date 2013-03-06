@@ -36,4 +36,6 @@ var client = chatter.connect('http://mywebserver.com/');
 client.on('message'. function(data) {
   console.log(data);
 });
+
+client.send("My new Message", "jim");
 ```
