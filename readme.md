@@ -2,15 +2,24 @@
 
 An npm module for creating chat servers and clients.
 
+Check out the examples directory for CLI server and client apps.
+
+### Install with npm
+
 ``` bash
 npm install chatter
 ```
 
 ### Chat Server
 
+
+
 ``` javascript
 var chatter = require('chatter');
-var chat_server = new chatter.server();
+var options = {
+  port: process.env.PORT || 8000
+}
+var chatter_server = new chatter.server(options);
 ```
 
 
@@ -18,11 +27,16 @@ var chat_server = new chatter.server();
 
 ``` javascript
 var chatter = require('chatter');
-var chat_client = new chatter.client();
-chat_client.on('message', function(message) {
+var connection = {
+  host: "http://chatterjs.herokuapp.com",
+  port: 80
+};
+var chatter_client = new chatter.client(connection);
+
+chatter_client.on('message', function(message) {
   console.log(message);
 });
-chat_client.send('Hello World', 'Jim');
+chatter_client.send('Hello World', 'Jim');
 ```
 
 ### Client Side Chat Client
