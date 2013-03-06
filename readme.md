@@ -11,8 +11,6 @@ npm install chatter
 ``` javascript
 var chatter = require('chatter');
 var chat_server = new chatter.server();
-
-chat_server.publish('I am a new message');
 ```
 
 
@@ -22,8 +20,9 @@ chat_server.publish('I am a new message');
 var chatter = require('chatter');
 var chat_client = new chatter.client();
 chat_client.on('message', function(message) {
-
+  console.log(message);
 });
+chat_client.send('Hello World', 'Jim');
 ```
 
 ### Client Side Chat Client
