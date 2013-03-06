@@ -45,10 +45,10 @@ chatter_client.send('Hello World', 'Jim');
 <script src="http://mywebserver.com/chatter/chatter.js"></script>
 ```
 ``` javascript
-var client = chatter.connect('http://mywebserver.com/');
+var client = chatter.connect('http://chatterjs.herokuapp.com');
 client.on('message'. function(data) {
   console.log(data);
 });
 
-client.send("My new Message", "jim");
+client.send("Hello World!", "Jim");
 ```

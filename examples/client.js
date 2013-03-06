@@ -1,13 +1,9 @@
 var chatter = require('../index'),
     stdin = process.stdin,
-    stdout = process.stdout;
+    stdout = process.stdout,
+    username = "";
 
-var connection = {
-  host: "http://chatterjs.herokuapp.com",
-  port: 80
-};
-
-var chatter_client = new chatter.client(connection);
+var chatter_client = new chatter.client("http://chatterjs.herokuapp.com");
 
 chatter_client.on('message', function (message) {
   if (typeof message == "string") {
@@ -21,7 +17,30 @@ chatter_client.on('message', function (message) {
   console.log("\033[32m" + message.user + "\033[39m : " + message.body);
 });
 
-process.nextTick(waitForMessage);
+process.nextTick(askForUsername);
+
+function askForUsername() {
+  stdin.resume();
+  stdin.setEncoding('utf8');
+
+  stdout.write("  Enter Your Usename: ");
+  // when data is submitted by user
+  stdin.on('data', setUsername);
+}
+
+function setUsername(string) {
+  stdin.pause();
+
+  stdin.removeListener('data', setUsername);
+
+  username = string.replace("\n", "");
+
+  chatter_client.getRecentHistory();
+  chatter_client.listenForMessages();
+
+  process.nextTick(waitForMessage);
+}
+
 
 function waitForMessage() {
   stdin.resume();
@@ -32,5 +51,5 @@ function waitForMessage() {
 }
 
 function sendMessage(message) {
-  chatter_client.send(message.replace("\n", ""), "Jim");
+  chatter_client.send(message.replace("\n", ""), username);
 }
