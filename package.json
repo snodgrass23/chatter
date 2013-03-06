@@ -3,6 +3,10 @@
   "description":"module for building chat server and client",
   "version":"0.0.1",
   "author":"Jim Snodgrass <jim@skookum.com>",
+  "engines": {
+      "node": ">=0.8.0",
+      "npm": ">=1.1"
+  },
   "dependencies": {
     "express":"3.x",
     "superagent":"latest",
