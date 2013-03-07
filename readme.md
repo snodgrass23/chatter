@@ -23,7 +23,7 @@ var chatter_server = new chatter.server(options);
 ```
 
 
-### Server Side Chat Client
+### Node Chat Client
 
 ``` javascript
 var chatter = require('chatter');
@@ -33,18 +33,18 @@ var chatter_client = new chatter.client("http://chatterjs.herokuapp.com");
 chatter_client.getRecentHistory();
 
 // start listening for new messages
-chatter_client.listenForMessages();
-
 chatter_client.on('message', function(message) {
   console.log(message);
 });
+
+// send new message with body and user
 chatter_client.send('Hello World', 'Jim');
 ```
 
 ### Client Side Chat Client
 
 ``` html
-<script src="http://mywebserver.com/chatter/chatter.js"></script>
+<script src="http://chatterjs.herokuapp.com/chatter/chatter.js"></script>
 ```
 ``` javascript
 var client = chatter.connect('http://chatterjs.herokuapp.com');
