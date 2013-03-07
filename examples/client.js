@@ -3,9 +3,45 @@ var chatter = require('../index'),
     stdout = process.stdout,
     username = "";
 
+var readline = require('readline');
+
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
 var chatter_client = new chatter.client("http://chatterjs.herokuapp.com");
 
-chatter_client.on('message', function (message) {
+rl.question("\033[35m Enter Your Usename: \033[39m ", function(answer) {
+  username = answer.replace("\n", "");
+
+  rl.close();
+
+  console.log("\n\n\033[33mChatroom:\033[39m");
+
+  chatter_client.getRecentHistory();
+  chatter_client.on('message', receiveMessage);
+
+  process.nextTick(waitForMessage);
+});
+
+
+function waitForMessage() {
+  stdin.resume();
+  stdin.setEncoding('utf8');
+
+  writeUsername();
+
+  // when data is submitted by user
+  stdin.on('data', sendMessage);
+}
+
+function sendMessage(message) {
+  writeUsername();
+  chatter_client.send(message.replace("\n", ""), username);
+}
+
+function receiveMessage(message) {
   if (typeof message == "string") {
     try {
       message = JSON.parse(message);
@@ -14,42 +50,16 @@ chatter_client.on('message', function (message) {
       // console.log("JSON Error: ", e);
     }
   }
+  writeMessage(message);
+}
+
+function writeMessage(message, user) {
+  stdout.clearLine();
+  stdout.write("\r\033[0K");
   console.log("\033[32m" + message.user + "\033[39m : " + message.body);
-});
-
-process.nextTick(askForUsername);
-
-function askForUsername() {
-  stdin.resume();
-  stdin.setEncoding('utf8');
-
-  stdout.write("  Enter Your Usename: ");
-  // when data is submitted by user
-  stdin.on('data', setUsername);
+  writeUsername();
 }
 
-function setUsername(string) {
-  stdin.pause();
-
-  stdin.removeListener('data', setUsername);
-
-  username = string.replace("\n", "");
-
-  chatter_client.getRecentHistory();
-  chatter_client.listenForMessages();
-
-  process.nextTick(waitForMessage);
-}
-
-
-function waitForMessage() {
-  stdin.resume();
-  stdin.setEncoding('utf8');
-
-  // when data is submitted by user
-  stdin.on('data', sendMessage);
-}
-
-function sendMessage(message) {
-  chatter_client.send(message.replace("\n", ""), username);
+function writeUsername() {
+  stdout.write("\033[32m" + username + "\033[39m : ");
 }
