@@ -43,14 +43,15 @@ chatter_client.send('Hello World', 'Jim');
 
 ### Client Side Chat Client
 
+*requires zepto.js, might also work with alternatives like JQuery*
+
 ``` html
 <script src="http://chatterjs.herokuapp.com/chatter/chatter.js"></script>
 ```
 ``` javascript
-var client = chatter.connect('http://chatterjs.herokuapp.com');
-client.on('message'. function(data) {
-  console.log(data);
+chatter.connect('http://chatterjs.herokuapp.com', function(data) {
+  console.log("handling new message: ", data);
 });
 
-client.send("Hello World!", "Jim");
+chatter.send("Hello World!", "Client");
 ```
