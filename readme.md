@@ -10,7 +10,7 @@ Check out the examples directory for CLI server and client apps.
 npm install chatter
 ```
 
-### Chat Server
+### Node Server
 
 
 
@@ -23,7 +23,7 @@ var chatter_server = new chatter.server(options);
 ```
 
 
-### Node Chat Client
+### Node Client
 
 ``` javascript
 var chatter = require('chatter');
@@ -41,7 +41,7 @@ chatter_client.on('message', function(message) {
 chatter_client.send('Hello World', 'Jim');
 ```
 
-### Client Side Chat Client
+### Front-End Client
 
 *requires "JQuery-like" library for ajax calls. Primary testing done using zepto.js*
 
