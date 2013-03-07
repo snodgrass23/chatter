@@ -13,12 +13,12 @@ var rl = readline.createInterface({
 
 var chatter_client = new chatter.client("http://chatterjs.herokuapp.com");
 
-rl.question("\033[35m Enter Your Usename: \033[39m ", function(answer) {
+rl.question("\033[35m Enter Your Username: \033[39m ", function(answer) {
   username = answer.replace("\n", "");
 
   rl.close();
 
-  console.log("\n\n\033[33mChatroom:\033[39m");
+  console.log("\n\n\033[33mChatroom:\033[39m general chat\n");
 
   chatter_client.getRecentHistory();
   chatter_client.on('message', receiveMessage);
