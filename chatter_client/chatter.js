@@ -33,11 +33,11 @@
     });
   };
 
-  Client.prototype.send = function(message, user) {
+  Client.prototype.send = function(message, user, callback) {
     last_sent_message.body = message;
     last_sent_message.user = user || "";
     $.post(this.host+'/message', {message:message, user:user}, function(data) {
-      // after create
+      if (callback) callback(data);
     });
   };
 
