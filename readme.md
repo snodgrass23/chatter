@@ -58,5 +58,8 @@ chatter.connect('http://chatterjs.herokuapp.com', function(data) {
 // method to get last 10 messages in room
 chatter.getRecentHistory();
 
-chatter.send("Hello World!", "Client");
+// has optional callback to get created message returned
+chatter.send("Hello World!", "Client", function(response) {
+  console.log("new message", response);
+});
 ```
