@@ -43,7 +43,7 @@ chatter_client.send('Hello World', 'Jim');
 
 ### Client Side Chat Client
 
-*requires zepto.js, might also work with alternatives like JQuery*
+*requires "JQuery-like" library for ajax calls. Primary testing done using zepto.js*
 
 ``` html
 <script src="http://chatterjs.herokuapp.com/chatter/chatter.js"></script>
