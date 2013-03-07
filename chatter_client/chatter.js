@@ -18,9 +18,10 @@
 
   function Client(host) {}
 
-  Client.prototype.connect = function(host, fn) {
+  Client.prototype.connect = function(host, fn, interval) {
     this.host = host;
     this.message_handler = fn;
+    this.interval = interval || 500;
     this.listenForMessages();
   };
 
@@ -63,7 +64,7 @@
         if (data) self.broadcast(data);
         self.listenForMessages.call(self);
       });
-    }, 2000);
+    }, self.interval);
   };
 
   root.chatter = new Client();

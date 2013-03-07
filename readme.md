@@ -49,9 +49,11 @@ chatter_client.send('Hello World', 'Jim');
 <script src="http://chatterjs.herokuapp.com/chatter/chatter.js"></script>
 ```
 ``` javascript
+// first argument is host server, second is callback for new messages
+// last argument is optional for polling interval
 chatter.connect('http://chatterjs.herokuapp.com', function(data) {
   console.log("handling new message: ", data);
-});
+}, 500);
 
 chatter.send("Hello World!", "Client");
 ```
