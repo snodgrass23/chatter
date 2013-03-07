@@ -5,7 +5,7 @@
 (function(root) {
 
   var last_received_message = {
-        timestamp: 0,
+        timestamp: Date.now(),
         body: '',
         user: ''
       };

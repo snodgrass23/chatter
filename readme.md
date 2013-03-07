@@ -55,5 +55,8 @@ chatter.connect('http://chatterjs.herokuapp.com', function(data) {
   console.log("handling new message: ", data);
 }, 500);
 
+// method to get last 10 messages in room
+chatter.getRecentHistory();
+
 chatter.send("Hello World!", "Client");
 ```
