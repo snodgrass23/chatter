@@ -11,7 +11,7 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-var chatter_client = new chatter.client("http://chatterjs.herokuapp.com");
+var chatter_client = new chatter.client("http://localhost:8000");
 
 rl.question("\033[35m Enter Your Username: \033[39m ", function(answer) {
   username = answer.replace("\n", "");
