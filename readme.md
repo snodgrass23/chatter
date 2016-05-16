@@ -6,9 +6,7 @@ Check out the examples directory for CLI server and client apps.
 
 ### Install with npm
 
-``` bash
-npm install chatter
-```
+NOTE: This has been removed from npm so another developer could use the name. Download and install manually as needed.
 
 ### Node Server
 
